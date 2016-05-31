@@ -1,0 +1,100 @@
+{
+  "list": [
+    {
+      "question": "authorize",
+      "answer": "授權",
+    },
+    {
+      "question": "ban",
+      "answer": "禁止",
+    },
+    {
+      "question": "bound",
+      "answer": "束縛",
+    },
+    {
+      "question": "captivity",
+      "answer": "拘留",
+    },
+    {
+      "question": "compulsory",
+      "answer": "義務性的",
+    },
+    {
+      "question": "convict",
+      "answer": "宣告有罪",
+    },
+    {
+      "question": "court",
+      "answer": "法庭",
+    },
+    {
+      "question": "defend",
+      "answer": "辯護",
+    },
+    {
+      "question": "forbid",
+      "answer": "禁止",
+    },
+    {
+      "question": "imprisonment",
+      "answer": "監禁",
+    },
+    {
+      "question": "jurisdiction",
+      "answer": "權限",
+    },
+    {
+      "question": "pledge",
+      "answer": "誓言",
+    },
+    {
+      "question": "oath",
+      "answer": "宣誓",
+    },
+    {
+      "question": "penal",
+      "answer": "刑罰的",
+    },
+    {
+      "question": "saddle",
+      "answer": "馬鞍",
+    },
+    {
+      "question": "trial",
+      "answer": "試驗",
+    },
+    {
+      "question": "veto",
+      "answer": "否決",
+    },
+    {
+      "question": "flee",
+      "answer": "逃出",
+    },
+    {
+      "question": "fine",
+      "answer": "罰款",
+    },
+    {
+      "question": "domineering",
+      "answer": "專橫的",
+    },
+    {
+      "question": "illegitimate",
+      "answer": "非法的",
+    },
+    {
+      "question": "violation",
+      "answer": "違反",
+    },
+    {
+      "question": "plead",
+      "answer": "懇求",
+    },
+    {
+      "question": "empower",
+      "answer": "授權",
+    }
+  ]
+}

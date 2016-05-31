@@ -1,0 +1,100 @@
+{
+  "list": [
+    {
+      "question": "implicit",
+      "answer": "含蓄的",
+    },
+    {
+      "question": "concise",
+      "answer": "簡潔的",
+    },
+    {
+      "question": "fluent",
+      "answer": "流利的",
+    },
+    {
+      "question": "cogent",
+      "answer": "有說服力",
+    },
+    {
+      "question": "glossary",
+      "answer": "詞彙表",
+    },
+    {
+      "question": "dialect",
+      "answer": "方言",
+    },
+    {
+      "question": "clause",
+      "answer": "條款",
+    },
+    {
+      "question": "linguistics",
+      "answer": "語言學",
+    },
+    {
+      "question": "phonetics",
+      "answer": "語音學",
+    },
+    {
+      "question": "tense",
+      "answer": "緊張的",
+    },
+    {
+      "question": "genre",
+      "answer": "文學流派",
+    },
+    {
+      "question": "lyric",
+      "answer": "歌詞",
+    },
+    {
+      "question": "verse",
+      "answer": "詩",
+    },
+    {
+      "question": "fiction",
+      "answer": "小說",
+    },
+    {
+      "question": "byword",
+      "answer": "諺語",
+    },
+    {
+      "question": "fable",
+      "answer": "傳說",
+    },
+    {
+      "question": "term",
+      "answer": "術語",
+    },
+    {
+      "question": "maxim",
+      "answer": "格言",
+    },
+    {
+      "question": "satire",
+      "answer": "諷刺",
+    },
+    {
+      "question": "farce",
+      "answer": "鬧劇",
+    },
+    {
+      "question": "adage",
+      "answer": "諺語",
+    },
+    {
+      "question": "synopsis",
+      "answer": "大綱",
+    },
+    {
+      "question": "compile",
+      "answer": "編輯",
+    },
+    {
+      "question": "entitle",
+      "answer": "取名",
+    }
+  ]
+}

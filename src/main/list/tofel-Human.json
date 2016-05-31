@@ -1,0 +1,100 @@
+{
+  "list": [
+    {
+      "question": "counsel",
+      "answer": "勸告",
+    },
+    {
+      "question": "crew",
+      "answer": "全體人員",
+    },
+    {
+      "question": "aviator",
+      "answer": "飛行家",
+    },
+    {
+      "question": "playwright",
+      "answer": "劇作家",
+    },
+    {
+      "question": "clergy",
+      "answer": "牧師",
+    },
+    {
+      "question": "auditor",
+      "answer": "旁聽者",
+    },
+    {
+      "question": "sculptor",
+      "answer": "雕刻家",
+    },
+    {
+      "question": "astronaut",
+      "answer": "太空人",
+    },
+    {
+      "question": "astronomer",
+      "answer": "天文學家",
+    },
+    {
+      "question": "botanist",
+      "answer": "植物學家",
+    },
+    {
+      "question": "scout",
+      "answer": "偵查",
+    },
+    {
+      "question": "caliber",
+      "answer": "才能",
+    },
+    {
+      "question": "faculty",
+      "answer": "教職員",
+    },
+    {
+      "question": "treasurer",
+      "answer": "財務主管",
+    },
+    {
+      "question": "archeologist",
+      "answer": "考古學家",
+    },
+    {
+      "question": "meteorologist",
+      "answer": "氣象學者",
+    },
+    {
+      "question": "anthropologist",
+      "answer": "人類學家",
+    },
+    {
+      "question": "imagist",
+      "answer": "印象派",
+    },
+    {
+      "question": "censor",
+      "answer": "檢查員",
+    },
+    {
+      "question": "hermit",
+      "answer": "隱居者",
+    },
+    {
+      "question": "recluse",
+      "answer": "隱士",
+    },
+    {
+      "question": "critic",
+      "answer": "批評家",
+    },
+    {
+      "question": "philanthropist",
+      "answer": "慈善家",
+    },
+    {
+      "question": "attorney",
+      "answer": "辯護律師",
+    }
+  ]
+}

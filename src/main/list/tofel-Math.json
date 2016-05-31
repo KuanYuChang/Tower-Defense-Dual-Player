@@ -1,0 +1,100 @@
+{
+  "list": [
+    {
+      "question": "estimate",
+      "answer": "估計",
+    },
+    {
+      "question": "calculate",
+      "answer": "計算",
+    },
+    {
+      "question": "enumerate",
+      "answer": "計數",
+    },
+    {
+      "question": "variant",
+      "answer": "變量",
+    },
+    {
+      "question": "aggregate",
+      "answer": "總合",
+    },
+    {
+      "question": "cone",
+      "answer": "圓錐",
+    },
+    {
+      "question": "plumb",
+      "answer": "垂直",
+    },
+    {
+      "question": "geometry",
+      "answer": "幾何學",
+    },
+    {
+      "question": "dual",
+      "answer": "雙重的",
+    },
+    {
+      "question": "qualitative",
+      "answer": "定性的",
+    },
+    {
+      "question": "circuitous",
+      "answer": "迂迴的",
+    },
+    {
+      "question": "caliber",
+      "answer": "才能",
+    },
+    {
+      "question": "dispersion",
+      "answer": "離差",
+    },
+    {
+      "question": "cohesive",
+      "answer": "黏著的",
+    },
+    {
+      "question": "bulk",
+      "answer": "大部分",
+    },
+    {
+      "question": "brim",
+      "answer": "邊緣",
+    },
+    {
+      "question": "rim",
+      "answer": "邊框",
+    },
+    {
+      "question": "constituent",
+      "answer": "要素",
+    },
+    {
+      "question": "impetus",
+      "answer": "推動力",
+    },
+    {
+      "question": "decelerate",
+      "answer": "減速",
+    },
+    {
+      "question": "precipitate",
+      "answer": "加速降落",
+    },
+    {
+      "question": "expedite",
+      "answer": "暢通",
+    },
+    {
+      "question": "quiver",
+      "answer": "震動",
+    },
+    {
+      "question": "diffuse",
+      "answer": "散布的",
+    }
+  ]
+}
