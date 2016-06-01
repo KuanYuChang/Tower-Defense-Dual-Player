@@ -27,6 +27,7 @@ public class ServerMain extends JFrame implements AdjustmentListener, Runnable {
 	//game status
 	private ArrayList<GameStatus> playerStatus;
 	private Thread moneyCnt;
+	private boolean isPlaying;
 	
 	//constructor
 	public ServerMain() {
@@ -56,9 +57,8 @@ public class ServerMain extends JFrame implements AdjustmentListener, Runnable {
 		}
 		
 		//start thread
-		new Thread(this).start();		
-		this.setup();
-		
+		new Thread(this).start();
+		this.isPlaying = false;
 		super.setVisible(true);
 	}
 	
@@ -94,7 +94,7 @@ public class ServerMain extends JFrame implements AdjustmentListener, Runnable {
 					Socket client = this.serverSocket.accept();
 					this.textArea.append("server is connected!\n");
 					this.addLine("Player " + (this.playerStatus.size()+1) + " 's IP Address is " + client.getInetAddress().getHostAddress());
-					GameStatus gameStatus = new GameStatus(client);
+					GameStatus gameStatus = new GameStatus(this, client);
 					gameStatus.start();
 					this.playerStatus.add(gameStatus);
 					if(this.playerStatus.size() == 2){
@@ -104,9 +104,11 @@ public class ServerMain extends JFrame implements AdjustmentListener, Runnable {
 					e.printStackTrace();
 				}
 			}else if(this.state == ServerState.setup){
+				this.setup();
 				this.playerStatus.get(0).addEnemy(this.playerStatus.get(1));
 				this.playerStatus.get(1).addEnemy(this.playerStatus.get(0));
 				this.state = ServerState.playing;
+				this.isPlaying = true;
 				this.moneyCnt.start();
 			}else if(this.state == ServerState.playing){
 				
@@ -119,7 +121,7 @@ public class ServerMain extends JFrame implements AdjustmentListener, Runnable {
 		this.moneyCnt = new Thread(new Runnable(){
 			@Override
 			public void run() {
-				while(true){
+				while(ServerMain.this.isPlaying){
 					try {
 						Thread.sleep(1000);
 						for(GameStatus s: ServerMain.this.playerStatus){
@@ -131,6 +133,14 @@ public class ServerMain extends JFrame implements AdjustmentListener, Runnable {
 				}						
 			}
 		});
+	}
+	
+	//reset when game over
+	public void reset(){
+		this.addLine("Game Over!");
+		this.playerStatus.clear();
+		this.isPlaying = false;
+		this.state = ServerState.waiting;
 	}
 	
 	//program entry point
