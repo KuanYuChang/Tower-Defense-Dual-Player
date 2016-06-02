@@ -51,7 +51,7 @@ public class RadarChart extends Component{
 		super.getParent().text("Attack Range", 
 				super.getX() + this.radius*PApplet.cos(PApplet.PI/6)*5/4, 
 				super.getY() + this.radius*PApplet.sin(PApplet.PI/6)*5/4);
-		super.getParent().text("Attak", 
+		super.getParent().text("Attack", 
 				super.getX() + this.radius*PApplet.cos(PApplet.PI/6+PApplet.TWO_PI/3)*5/4, 
 				super.getY() + this.radius*PApplet.sin(PApplet.PI/6+PApplet.TWO_PI/3)*5/4);
 		super.getParent().text("HP", 
