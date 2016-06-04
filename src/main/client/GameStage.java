@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Random;
+import java.util.TreeMap;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -19,13 +21,11 @@ public class GameStage extends GameLayout{
 	private BufferedReader reader;
 	private Thread thread;
 	
-	/*
 	//game GUI
 	private BackGround bg;
 	private WarriorButton warriorButton;
 	private ArcherButton archerButton;
 	private GameButtonLabel gameButtonLabel;
-	*/
 	
 	//game status
 	private int money, maxMoney;
@@ -36,23 +36,39 @@ public class GameStage extends GameLayout{
 	private int eTowerHP, eTowerMaxHP, mTowerHP, mTowerMaxHP;
 	private boolean isRunning;
 	
-	/*
 	//characters
 	private TreeMap<Integer, MySoldier> mySoldiers;
 	private TreeMap<Integer, EnemySoldier> enemySoldiers;
-	*/
+	
+	//others
+	private Random randomGen;
 	
 	//constructor
 	public GameStage(MainApplet parent){
 		super(parent);
+		this.bg = new BackGround(this, super.getParent(), 900, 100, 250);
+		this.warriorButton = new WarriorButton(this, super.getParent(), 333, 400, 120, 120);
+		this.archerButton = new ArcherButton(this, super.getParent(), 666, 400, 120, 120);
+		this.mySoldiers = new TreeMap<Integer, MySoldier>();
+		this.enemySoldiers = new TreeMap<Integer, EnemySoldier>();
+		this.gameButtonLabel = new GameButtonLabel(this, super.getParent(), 0, 0);
+		this.randomGen = new Random();
 		this.isRunning = true;
 	}
 	
 	//display components
 	public void display(){
+		this.bg.disaply();		
+		this.warriorButton.display();
+		this.archerButton.display();
+		for(Integer soldierID: this.mySoldiers.keySet())
+			{ try{ this.mySoldiers.get(soldierID).display();}catch(Exception e){break;}}
+		for(Integer soldierID: this.enemySoldiers.keySet())
+			{ try{ this.enemySoldiers.get(soldierID).display();}catch(Exception e){break;}}
 		super.getParent().stroke(0);
 		super.getParent().strokeWeight(2);
-		super.getParent().line(0, 320, 1000, 320);
+		super.getParent().line(0, 320, 1000, 320);	
+		this.gameButtonLabel.display();
 	}
 	
 	//decode information from server
@@ -63,7 +79,7 @@ public class GameStage extends GameLayout{
 		}else if(op.equals("MaxMoney")){
 			this.maxMoney = Integer.parseInt(msg.split("-")[1]);
 		}else if(op.equals("NoEnoughMoney")){
-			//notify no enough money
+			this.bg.noEnoughMoney();
 		}else if(op.equals("TowerHP")){
 			this.mTowerHP = Integer.parseInt(msg.split("-")[1]);
 		}else if(op.equals("TowerMaxHP")){
@@ -90,16 +106,48 @@ public class GameStage extends GameLayout{
 			this.eArcherLvl = Integer.parseInt(msg.split("-")[1]);
 		}else if(op.equals("Warrior")){
 			int ID = Integer.parseInt(msg.split("-")[1]);
-			//Warrior action
+			if(msg.split("-")[2].equals("Create")){
+				this.mySoldiers.put(ID, new MyWarrior(this, super.getParent(), 900+40, 250 + this.randomGen.nextInt(25)));
+			}else if(msg.split("-")[2].equals("Attack")){
+				try{this.mySoldiers.get(ID).attack();}catch(Exception e){System.out.println(msg);}
+			}else if(msg.split("-")[2].equals("Move")){
+				try{this.mySoldiers.get(ID).move();}catch(Exception e){System.out.println(msg);}
+			}else if(msg.split("-")[2].equals("Dead")){
+				this.mySoldiers.get(ID).setPosition(-1000, -1000);
+			}
 		}else if(op.equals("Archer")){
 			int ID = Integer.parseInt(msg.split("-")[1]);
-			//Archer action
+			if(msg.split("-")[2].equals("Create")){
+				this.mySoldiers.put(ID, new MyArcher(this, super.getParent(), 900+40, 250 + this.randomGen.nextInt(25)));
+			}else if(msg.split("-")[2].equals("Attack")){
+				try{this.mySoldiers.get(ID).attack();}catch(Exception e){System.out.println(msg);}
+			}else if(msg.split("-")[2].equals("Move")){
+				try{this.mySoldiers.get(ID).move();}catch(Exception e){System.out.println(msg);}
+			}else if(msg.split("-")[2].equals("Dead")){
+				this.mySoldiers.get(ID).setPosition(-1000, -1000);
+			}
 		}else if(op.equals("EnemyWarrior")){
 			int ID = Integer.parseInt(msg.split("-")[1]);
-			//Enemy warrior action
+			if(msg.split("-")[2].equals("Create")){
+				this.enemySoldiers.put(ID, new EnemyWarrior(this, super.getParent(), 100-40, 250 + this.randomGen.nextInt(25)));
+			}else if(msg.split("-")[2].equals("Attack")){
+				try{this.enemySoldiers.get(ID).attack();}catch(Exception e){System.out.println(msg);}
+			}else if(msg.split("-")[2].equals("Move")){
+				try{this.enemySoldiers.get(ID).move();}catch(Exception e){System.out.println(msg);}
+			}else if(msg.split("-")[2].equals("Dead")){
+				this.enemySoldiers.get(ID).setPosition(-1000, -1000);
+			}
 		}else if(op.equals("EnemyArcher")){
 			int ID = Integer.parseInt(msg.split("-")[1]);
-			//Enemy archer action
+			if(msg.split("-")[2].equals("Create")){
+				this.enemySoldiers.put(ID, new EnemyArcher(this, super.getParent(), 100-40, 250 + this.randomGen.nextInt(25)));
+			}else if(msg.split("-")[2].equals("Attack")){
+				try{this.enemySoldiers.get(ID).attack();}catch(Exception e){System.out.println(msg);}
+			}else if(msg.split("-")[2].equals("Move")){
+				try{this.enemySoldiers.get(ID).move();}catch(Exception e){System.out.println(msg);}
+			}else if(msg.split("-")[2].equals("Dead")){
+				this.enemySoldiers.get(ID).setPosition(-1000, -1000);
+			}
 		}else if(op.equals("Win")){
 			JOptionPane.showMessageDialog(new JFrame(), "You win the game!");
 			this.isRunning = false;
@@ -146,6 +194,7 @@ public class GameStage extends GameLayout{
 	}
 	
 	//getter
+	public BackGround getBackGround()		{ return this.bg; }
 	public int getEnemyTowerHP()			{ return this.eTowerHP; }
 	public int getEnemyTowerMaxHP()			{ return this.eTowerMaxHP; }
 	public int getEnemyWarriorLvl()			{ return this.eWarriorLvl; }
@@ -160,6 +209,8 @@ public class GameStage extends GameLayout{
 	public int getMyArcherUpgradeCost()		{ return this.archerUpgradeCost; }
 	public int getMoney()					{ return this.money; }
 	public int getMaxMOney()				{ return this.maxMoney; }
+	public WarriorButton getWarriorButton()	{ return this.warriorButton; }
+	public ArcherButton getArcherButton()	{ return this.archerButton; }
 	
 	//control
 	public void hireWarrior()		{ this.sendMessage("Hire-Warrior"); }
