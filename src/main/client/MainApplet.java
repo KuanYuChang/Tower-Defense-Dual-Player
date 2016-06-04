@@ -19,6 +19,7 @@ public class MainApplet extends PApplet{
 	private GameManual manual;
 	private GameManualSoldier manual_soldier;
 	private GameVocaList vocalist;
+	//private SubWindow subWindow;
 	
 	//vocabulary list
 	private String[] vocaFile = {"Economics", "Human", "Law", "Linguistics", "Math"};
@@ -64,7 +65,8 @@ public class MainApplet extends PApplet{
 		if(this.state == ClientState.menu){
 			if(this.menu.mouseOnStart()){
 				this.gameStage = new GameStage(this);
-				//this.gameStage.connect();
+				this.gameStage.connect();
+				//this.subWindow = new SubWindow(gameStage, lists);
 				this.state = ClientState.playing;
 			}else if(this.menu.mouseOnList()){
 				this.state = ClientState.list;
@@ -92,14 +94,24 @@ public class MainApplet extends PApplet{
 				this.state = ClientState.menu;
 			}
 		}else if(this.state == ClientState.playing){
-			//control during game running
+			if(this.gameStage.getWarriorButton().mouseOn()){
+				this.gameStage.hireWarrior();
+			}else if(this.gameStage.getWarriorButton().mouseOnUpgrade()){
+				this.gameStage.upgradeWarrior();
+			}else if(this.gameStage.getArcherButton().mouseOn()){
+				this.gameStage.hireArcher();
+			}else if(this.gameStage.getArcherButton().mouseOnUpgrade()){
+				this.gameStage.upgradeArcher();
+			}
 		}
 	}
 	
 	public void reset(){
 		this.state = ClientState.menu;
 		this.gameStage = null;
-	}	
+		//this.subWindow.close();
+	}
+	
 
 	//load data
 	private void loadData(){
