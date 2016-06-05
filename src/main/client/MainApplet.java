@@ -19,7 +19,7 @@ public class MainApplet extends PApplet{
 	private GameManual manual;
 	private GameManualSoldier manual_soldier;
 	private GameVocaList vocalist;
-	//private SubWindow subWindow;
+	private SubWindow subWindow;
 	
 	//vocabulary list
 	private String[] vocaFile = {"Economics", "Human", "Law", "Linguistics", "Math"};
@@ -66,7 +66,7 @@ public class MainApplet extends PApplet{
 			if(this.menu.mouseOnStart()){
 				this.gameStage = new GameStage(this);
 				this.gameStage.connect();
-				//this.subWindow = new SubWindow(gameStage, lists);
+				this.subWindow = new SubWindow(gameStage, lists);
 				this.state = ClientState.playing;
 			}else if(this.menu.mouseOnList()){
 				this.state = ClientState.list;
@@ -109,7 +109,7 @@ public class MainApplet extends PApplet{
 	public void reset(){
 		this.state = ClientState.menu;
 		this.gameStage = null;
-		//this.subWindow.close();
+		this.subWindow.close();
 	}
 	
 
