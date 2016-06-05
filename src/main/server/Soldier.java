@@ -47,7 +47,7 @@ public abstract class Soldier{
 					}
 				}
 				Soldier.this.sendAction("Dead");
-				Soldier.this.gameStatus.getSoldiers().remove(ID);
+				Soldier.this.pos = -1000;
 			}
 		});
 		

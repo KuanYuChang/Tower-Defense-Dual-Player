@@ -110,8 +110,6 @@ public class ServerMain extends JFrame implements AdjustmentListener, Runnable {
 				this.state = ServerState.playing;
 				this.isPlaying = true;
 				this.moneyCnt.start();
-			}else if(this.state == ServerState.playing){
-				
 			}
 		}
 	}

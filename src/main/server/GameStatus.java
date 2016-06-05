@@ -74,7 +74,8 @@ public class GameStatus extends Thread{
 				String line = GameStatus.this.reader.readLine();
 				GameStatus.this.decode(line);
 			} catch (IOException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
+				break;
 			}
 		}
 	}
