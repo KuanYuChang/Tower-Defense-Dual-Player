@@ -39,7 +39,7 @@ public class MainApplet extends PApplet{
 		this.vocalist = new GameVocaList(this, this.lists, this.vocaFile);
 		this.ellipseMode(RADIUS);
 		this.textAlign(CENTER, CENTER);
-		this.textFont(this.createFont("./res/font/GenJyuuGothic-Heavy.ttf", 32));
+		this.textFont(this.createFont("res/font/GenJyuuGothic-Heavy.ttf", 32));
 		this.smooth();		
 	}
 	
@@ -115,7 +115,7 @@ public class MainApplet extends PApplet{
 
 	//load data
 	private void loadData(){
-		String fileDir = "./res/list/";
+		String fileDir = "res/list/";
 		String fileprefix = "tofel-";
 		String fileType = ".json";
 		JSONObject data;
