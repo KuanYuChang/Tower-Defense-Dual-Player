@@ -61,10 +61,13 @@ public class GameStage extends GameLayout{
 		this.bg.disaply();		
 		this.warriorButton.display();
 		this.archerButton.display();
-		for(Integer soldierID: this.mySoldiers.keySet())
-			{ try{ this.mySoldiers.get(soldierID).display();}catch(Exception e){break;}}
-		for(Integer soldierID: this.enemySoldiers.keySet())
-			{ try{ this.enemySoldiers.get(soldierID).display();}catch(Exception e){break;}}
+		TreeMap<Integer, Soldier> tmpTree;
+		tmpTree = new TreeMap<Integer, Soldier>(this.mySoldiers);
+		for(Integer soldierID: tmpTree.keySet())
+			tmpTree.get(soldierID).display();
+		tmpTree = new TreeMap<Integer, Soldier>(this.enemySoldiers);
+		for(Integer soldierID: tmpTree.keySet())
+			tmpTree.get(soldierID).display();
 		super.getParent().stroke(0);
 		super.getParent().strokeWeight(2);
 		super.getParent().line(0, 320, 1000, 320);	
