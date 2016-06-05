@@ -10,6 +10,11 @@ import java.util.TreeMap;
 
 import javax.swing.SwingUtilities;
 
+import main.server.component.Archer;
+import main.server.component.Soldier;
+import main.server.component.SoldierType;
+import main.server.component.Warrior;
+
 public class GameStatus extends Thread{
 	//server
 	ServerMain parent;

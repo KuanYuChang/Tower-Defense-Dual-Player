@@ -3,6 +3,12 @@ package main.client;
 import java.util.TreeMap;
 
 import de.looksgood.ani.Ani;
+import main.client.layout.GameManual;
+import main.client.layout.GameManualSoldier;
+import main.client.layout.GameMenu;
+import main.client.layout.GameStage;
+import main.client.layout.GameVocaList;
+import main.client.vocaquiz.SubWindow;
 import processing.core.PApplet;
 import processing.data.JSONArray;
 import processing.data.JSONObject;
