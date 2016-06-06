@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.TreeMap;
 
-import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import de.looksgood.ani.Ani;
 import main.client.layout.GameStage;
