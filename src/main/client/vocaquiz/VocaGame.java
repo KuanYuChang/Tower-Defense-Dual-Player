@@ -27,7 +27,7 @@ public class VocaGame extends PApplet{
 	
 	private Minim minim;
 	private final String correctSoundPath = "res/sound/correct.mp3";
-	private final String wrongSoundPath = "res/sound/wrong.wav";
+	private final String wrongSoundPath = "res/sound/wrong.mp3";
 	
 	public VocaGame(GameStage gameStage, TreeMap<String, TreeMap<String, String>> lists){
 		super();
