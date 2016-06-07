@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.TreeMap;
 
+import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import de.looksgood.ani.Ani;
 import main.client.layout.GameStage;
@@ -28,6 +29,7 @@ public class VocaGame extends PApplet{
 	private Minim minim;
 	private final String correctSoundPath = "res/sound/correct.mp3";
 	private final String wrongSoundPath = "res/sound/wrong.mp3";
+	private AudioPlayer correct, wrong;
 	
 	public VocaGame(GameStage gameStage, TreeMap<String, TreeMap<String, String>> lists){
 		super();
@@ -35,6 +37,8 @@ public class VocaGame extends PApplet{
 		this.lists = lists;
 		this.randomGen = new Random();
 		this.minim = new Minim(this);
+		this.correct = this.minim.loadFile(this.correctSoundPath);
+		this.wrong = this.minim.loadFile(this.wrongSoundPath);
 	}
 
 	public void setup(){
@@ -134,12 +138,14 @@ public class VocaGame extends PApplet{
 				if(wo.getLable().equals(this.answer)){
 					this.isCorrect = true;
 					wo.showCorrect();
-					this.minim.loadFile(this.correctSoundPath).play();
+					this.correct.rewind();
+					this.correct.play();
 					this.gameStage.answerCorrect();
 				}else{
 					this.isWrong = true;
 					wo.showWrong();
-					this.minim.loadFile(this.wrongSoundPath).play();
+					this.wrong.rewind();
+					this.wrong.play();
 					this.findCorrect();
 				}
 			}
