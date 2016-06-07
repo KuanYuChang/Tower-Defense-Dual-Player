@@ -2,6 +2,9 @@ package main.client;
 
 import java.util.TreeMap;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import de.looksgood.ani.Ani;
 import main.client.layout.GameManual;
 import main.client.layout.GameManualSoldier;
@@ -70,10 +73,15 @@ public class MainApplet extends PApplet{
 	public void mouseClicked(){
 		if(this.state == ClientState.menu){
 			if(this.menu.mouseOnStart()){
-				this.gameStage = new GameStage(this);
-				this.gameStage.connect();
-				this.subWindow = new SubWindow(gameStage, lists);
-				this.state = ClientState.playing;
+				try{
+					this.gameStage = new GameStage(this);
+					this.subWindow = new SubWindow(gameStage, lists);
+					this.gameStage.connect();
+					this.state = ClientState.playing;
+				}catch(Exception e){
+					this.reset();
+					JOptionPane.showMessageDialog(new JFrame(),"Connect Error!");
+				}
 			}else if(this.menu.mouseOnList()){
 				this.state = ClientState.list;
 			}else if(this.menu.mouseOnManual()){

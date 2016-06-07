@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Random;
 import java.util.TreeMap;
 
@@ -175,31 +176,27 @@ public class GameStage extends GameLayout{
 	}
 	
 	//connect to server
-	public void connect(){
-		try{
-			//setup new socket
-			this.destinationIPAddr = JOptionPane.showInputDialog("Server IP address", "127.0.0.1");
-			this.destinationPortNum = 9527;
-			this.clientSocket = new Socket(this.destinationIPAddr, this.destinationPortNum);
-			this.writer = new PrintWriter(new OutputStreamWriter(this.clientSocket.getOutputStream()));
-			this.reader = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
-			thread = new Thread(new Runnable(){
-				@Override
-				public void run() {
-					while(GameStage.this.isRunning){
-						try {
-							String line = GameStage.this.reader.readLine();
-							GameStage.this.decode(line);
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+	public void connect() throws UnknownHostException, IOException{
+		//setup new socket
+		this.destinationIPAddr = JOptionPane.showInputDialog("Server IP address", "127.0.0.1");
+		this.destinationPortNum = 9527;
+		this.clientSocket = new Socket(this.destinationIPAddr, this.destinationPortNum);
+		this.writer = new PrintWriter(new OutputStreamWriter(this.clientSocket.getOutputStream()));
+		this.reader = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
+		thread = new Thread(new Runnable(){
+			@Override
+			public void run() {
+				while(GameStage.this.isRunning){
+					try {
+						String line = GameStage.this.reader.readLine();
+						GameStage.this.decode(line);
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
 				}
-			});
-			thread.start();
-		}catch(IOException e){
-			e.printStackTrace();
-		}
+			}
+		});
+		thread.start();
 	}
 	
 	//send message to server
