@@ -1,5 +1,5 @@
 # Tower Defense
-
+![Game-Screen-Shot](https://s102020009.gitbooks.io/software-studio-final-project-report/content/img/12.png)
 ## Incentive:
 Language Learning is popular nowadays but the most important part, vocabulary memorizing is tedious. 
 We guess the main reason is that it’s boring for memorizing vocabularies ourselves, but it would be interesting to compete with others. Thus, we want to combine games and vocabulary memorizing together to make learning interesting.
