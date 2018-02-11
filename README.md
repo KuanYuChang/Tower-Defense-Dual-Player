@@ -23,7 +23,3 @@ We import ani, minim, processing to complete our implementation.
 * Ani is used to display animation such as soldiers’ moving and attacking.
 * Minim is used to play sound effect when answer the Vol. quiz.
 * Processing is used to display all of the elements on the screen, including soldiers, tower, button, etc.   
-
-## Links
-Report: <br>
-[https://s102020009.gitbooks.io/software-studio-final-project-report/content/](https://s102020009.gitbooks.io/software-studio-final-project-report/content/)
